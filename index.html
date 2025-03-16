@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Globe - Travel Agency</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <a href="index.html" class="nav-link me-4">
+                            <i class="fas fa-plane-departure"></i> Find Flight
+                        </a>
+                        <a href="stays.html" class="nav-link">
+                            <i class="fas fa-bed"></i> Find Stays
+                        </a>
+                    </div>
+                    
+                    <a class="navbar-brand mx-auto" href="index.html">
+                        <img src="images/logo.png" alt="Globe Logo" class="logo">
+                    </a>
+                    
+                    <div class="d-flex align-items-center">
+                        <a href="favorites.html" class="nav-link me-3">
+                            <i class="far fa-heart"></i> Favourites
+                        </a>
+                        <a href="login.html" class="btn btn-outline-dark btn-sm me-2">Login</a>
+                        <a href="signup.html" class="btn btn-dark btn-sm">Sign up</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-6">
+                    <div class="hero-content">
+                        <h1>Helping Others <br><span class="display-3 fw-bold">LIVE & TRAVEL</span></h1>
+                        <p>Special offers to suit your plan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Box -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-box">
+                <ul class="nav nav-tabs" id="searchTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="flights-tab" data-bs-toggle="tab" data-bs-target="#flights" type="button" role="tab" aria-controls="flights" aria-selected="true">
+                            <i class="fas fa-plane"></i> Flights
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="stays-tab" data-bs-toggle="tab" data-bs-target="#stays" type="button" role="tab" aria-controls="stays" aria-selected="false">
+                            <i class="fas fa-bed"></i> Stays
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content p-4" id="searchTabContent">
+                    <div class="tab-pane fade show active" id="flights" role="tabpanel" aria-labelledby="flights-tab">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label for="fromTo" class="form-label">From - To</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="fromTo" placeholder="Lahore - Karachi">
+                                        <span class="input-group-text bg-white">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="trip" class="form-label">Trip</label>
+                                    <select class="form-select" id="trip">
+                                        <option>Return</option>
+                                        <option>One Way</option>
+                                        <option>Multi-city</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="dates" class="form-label">Depart - Return</label>
+                                    <input type="text" class="form-control" id="dates" placeholder="07 Nov 22 - 13 Nov 22">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="passengers" class="form-label">Passenger - Class</label>
+                                    <input type="text" class="form-control" id="passengers" placeholder="1 Passenger, Economy">
+                                </div>
+                                <div class="col-md-1 d-flex align-items-end">
+                                    <button type="submit" class="btn btn-success w-100">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="promoCode">
+                                        <label class="form-check-label" for="promoCode">Add Promo Code</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <button type="button" class="btn btn-success">Show Flights</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="stays" role="tabpanel" aria-labelledby="stays-tab">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label for="location" class="form-label">Location</label>
+                                    <input type="text" class="form-control" id="location" placeholder="Where are you going?">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="checkIn" class="form-label">Check in - Check out</label>
+                                    <input type="text" class="form-control" id="checkIn" placeholder="07 Nov 22 - 13 Nov 22">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="rooms" class="form-label">Rooms & Guests</label>
+                                    <input type="text" class="form-control" id="rooms" placeholder="1 Room, 2 Guests">
+                                </div>
+                                <div class="col-md-2">
+                                    <label for="stayType" class="form-label">Type</label>
+                                    <select class="form-select" id="stayType">
+                                        <option>Hotel</option>
+                                        <option>Resort</option>
+                                        <option>Villa</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1 d-flex align-items-end">
+                                    <button type="submit" class="btn btn-success w-100">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="stayPromoCode">
+                                        <label class="form-check-label" for="stayPromoCode">Add Promo Code</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-end">
+                                    <button type="button" class="btn btn-success">Show Places</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container py-5">
+            <div class="section-header d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2>Plan your perfect trip</h2>
+                    <p class="text-muted">Search flights and places for our most popular destinations</p>
+                </div>
+                <a href="#" class="btn btn-outline-success">See more places</a>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Destinations Section -->
+    <section class="destinations-section py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/istanbul.png" alt="Turkey" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>Istanbul, Turkey</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/sydney.png" alt="Australia" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>Sydney, Australia</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/baku.png" alt="Azerbaijan" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>Baku, Azerbaijan</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/male.png" alt="Maldives" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>Malé, Maldives</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/paris.png" alt="France" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>Paris, France</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/new-york.png" alt="USA" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>New York, USA</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/london.png" alt="UK" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>London, UK</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/tokyo.png" alt="Japan" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>Tokyo, Japan</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex align-items-center p-3 shadow rounded bg-white mb-4">
+                        <img src="images/destinations/dubai.png" alt="UAE" class="img-fluid rounded" width="80">
+                        <div class="ms-3">
+                            <h5>Dubai, UAE</h5>
+                            <p>Flights • Hotels • Resorts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Sections -->
+    <section class="featured-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="featured-card flights-card">
+                        <div class="card-overlay" >
+                            <h2>Flights</h2>
+                            <p>Search flights & find the best deals</p>
+                            <a href="flights.html" class="btn btn-success">Search Flights</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="featured-card hotels-card">
+                        <div class="card-overlay">
+                            <h2>Hotels</h2>
+                            <p>Search hotels & find the most popular</p>
+                            <a href="stays.html" class="btn btn-success">Search Hotels</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section py-5">
+        <div class="container">
+            <div class="section-header d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2>Reviews</h2>
+                    <p class="text-muted">What people say about Globe Trotter</p>
+                </div>
+                <button class="btn text-success">See all</button>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <h5>"A real sense of community, nurtured"</h5>
+                        <p>Really appreciate the help and support from the staff during these tough times. Shorthand to Katie for...</p>
+                        <a href="#" class="btn btn-link p-0 text-success">View more</a>
+                        <div class="rating my-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <div class="reviewer">
+                            <h6>Olga</h6>
+                            <p class="text-muted small">Google</p>
+                        </div>
+                        <img src="images/reviews/review-1.png" alt="Review" class="img-fluid mt-3 rounded">
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <h5>"The facilities are superb. Clean, Slick, bright."</h5>
+                        <p>A real sense of community, nurtured. Really appreciate the help and support from the staff...</p>
+                        <a href="#" class="btn btn-link p-0 text-success">View more</a>
+                        <div class="rating my-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <div class="reviewer">
+                            <h6>Thomas</h6>
+                            <p class="text-muted small">Google</p>
+                        </div>
+                        <img src="images/reviews/review-2.png" alt="Review" class="img-fluid mt-3 rounded">
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="review-card">
+                        <h5>"A real sense of community, nurtured"</h5>
+                        <p>Really appreciate the help and support from the staff during these tough times. Shorthand to Katie for...</p>
+                        <a href="#" class="btn btn-link p-0 text-success">View more</a>
+                        <div class="rating my-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <div class="reviewer">
+                            <h6>Emily</h6>
+                            <p class="text-muted small">Google</p>
+                        </div>
+                        <img src="images/reviews/review-3.png" alt="Review" class="img-fluid mt-3 rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-between ">
+                        <div class="newsletter-content">
+                            <h2>Subscribe Newsletter</h2>
+                            <h3>The Travel</h3>
+                            <p>Get inspired! Receive travel discounts, tips and behind the scenes stories.</p>
+                            <div class="input-group mt-4">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                                <button class="btn btn-dark" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 newsletter-image">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3 mb-4">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.png" alt="Globe Logo" class="img-fluid" style="max-width: 120px;">
+                    </a>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Our Destinations</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Canada</a></li>
+                        <li><a href="#">Alaska</a></li>
+                        <li><a href="#">France</a></li>
+                        <li><a href="#">Iceland</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Our Activities</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Northern Lights</a></li>
+                        <li><a href="#">Cruising & sailing</a></li>
+                        <li><a href="#">Multi-activities</a></li>
+                        <li><a href="#">Kayaking</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Travel Blogs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Bali Travel Guide</a></li>
+                        <li><a href="#">Sri Lanka Travel Guide</a></li>
+                        <li><a href="#">Peru Travel Guide</a></li>
+                        <li><a href="#">Bali Travel Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Work with us</a></li>
+                    </ul>
+                    <h5 class="mt-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Work with us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

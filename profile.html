@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Globe Travel Agency</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <a href="index.html" class="nav-link me-4">
+                            <i class="fas fa-plane-departure"></i> Find Flight
+                        </a>
+                        <a href="stays.html" class="nav-link">
+                            <i class="fas fa-bed"></i> Find Stays
+                        </a>
+                    </div>
+                    
+                    <a class="navbar-brand mx-auto" href="index.html">
+                        <img src="images/logo.png" alt="Globe Logo" class="logo">
+                    </a>
+                    
+                    <div class="d-flex align-items-center">
+                        <a href="favorites.html" class="nav-link me-3">
+                            <i class="far fa-heart"></i> Favourites
+                        </a>
+                        <div class="user-profile ms-3">
+                            <a href="profile.html" class="d-flex align-items-center active">
+                                <img src="images/user.png" alt="John D." class="rounded-circle me-2" width="32" height="32">
+                                <span>John D.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section profile-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-6">
+                    <div class="hero-content">
+                        <h1>Make your travel <br>wishlist, we'll do <br>the rest</h1>
+                        <p>Special offers to suit your plan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile-section py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <!-- User Profile Card -->
+                    <div class="profile-card mb-4">
+                        <div class="text-center mb-4">
+                            <img src="images/user.png" alt="John Doe" class="rounded-circle profile-img">
+                            <h4 class="mt-3">John Doe</h4>
+                            <p class="text-muted">john.doe@example.com</p>
+                        </div>
+                        
+                        <!-- Profile Menu -->
+                        <div class="profile-menu">
+                            <ul class="list-group">
+                                <li class="list-group-item active">
+                                    <i class="fas fa-user me-2"></i> Account
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-credit-card me-2"></i> Payments
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-cog me-2"></i> Settings
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-tools me-2"></i> Tools
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-headset me-2"></i> Support
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-sign-out-alt me-2"></i> Logout
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-9">
+                    <!-- Search Form -->
+                    <div class="search-box stays-search mb-4">
+                        <h5 class="mb-3">Where are you flying?</h5>
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label for="destination" class="form-label">Enter Destination</label>
+                                <input type="text" class="form-control" id="destination" placeholder="ISTANBUL, TURKEY">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="checkIn" class="form-label">Check In</label>
+                                <input type="text" class="form-control" id="checkIn" placeholder="Fri 12/2">
+                            </div>
+                            <div class="col-md-2">
+                                <label for="checkOut" class="form-label">Check Out</label>
+                                <input type="text" class="form-control" id="checkOut" placeholder="Sun 12/4">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="rooms" class="form-label">Rooms & Guests</label>
+                                <input type="text" class="form-control" id="rooms" placeholder="1 Room, 2 Guests">
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button type="submit" class="btn btn-success w-100">Show Places</button>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 text-end">
+                                <a href="#" class="text-success text-decoration-none">
+                                    <i class="fas fa-plus-circle"></i> Add Promo Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Searches -->
+                    <div class="recent-searches mb-4">
+                        <h4 class="mb-3">Your recent searches</h4>
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <div class="recent-search-card">
+                                    <img src="images/destinations/istanbul.png" alt="Istanbul" class="img-fluid rounded">
+                                    <div class="card-content mt-2">
+                                        <h6>Istanbul, Turkey</h6>
+                                        <p class="text-muted small">325 places</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="recent-search-card">
+                                    <img src="images/destinations/sydney.png" alt="Sydney" class="img-fluid rounded">
+                                    <div class="card-content mt-2">
+                                        <h6>Sydney, Australia</h6>
+                                        <p class="text-muted small">143 places</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="recent-search-card">
+                                    <img src="images/destinations/baku.png" alt="Baku" class="img-fluid rounded">
+                                    <div class="card-content mt-2">
+                                        <h6>Baku, Azerbaijan</h6>
+                                        <p class="text-muted small">159 places</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="recent-search-card">
+                                    <img src="images/destinations/male.png" alt="Malé" class="img-fluid rounded">
+                                    <div class="card-content mt-2">
+                                        <h6>Malé, Maldives</h6>
+                                        <p class="text-muted small">112 places</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fall Into Travel Section -->
+                    <div class="fall-travel-section mb-4">
+                        <div class="section-header d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h2>Fall into travel</h2>
+                                <p class="text-muted">Going somewhere to celebrate this season? Whether you're going home or somewhere to roam, we've got the travel tools to get you to your destination.</p>
+                            </div>
+                            <a href="#" class="btn btn-link text-success">See all</a>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <div class="travel-card">
+                                    <img src="images/destinations/melbourne.png" alt="Melbourne" class="img-fluid rounded">
+                                    <div class="card-overlay">
+                                        <h4>Melbourne</h4>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>An amazing journey</span>
+                                            <span class="price">$700</span>
+                                        </div>
+                                        <button class="btn btn-success w-100 mt-3">Book a hotel</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="travel-card">
+                                    <img src="images/destinations/paris.png" alt="Paris" class="img-fluid rounded">
+                                    <div class="card-overlay">
+                                        <h4>Paris</h4>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>A Paris Adventure</span>
+                                            <span class="price">$600</span>
+                                        </div>
+                                        <button class="btn btn-success w-100 mt-3">Book a hotel</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="travel-card">
+                                    <img src="images/destinations/london.png" alt="London" class="img-fluid rounded">
+                                    <div class="card-overlay">
+                                        <h4>London</h4>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>London eye adventure</span>
+                                            <span class="price">$350</span>
+                                        </div>
+                                        <button class="btn btn-success w-100 mt-3">Book a hotel</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="travel-card">
+                                    <img src="images/destinations/columbia.png" alt="Columbia" class="img-fluid rounded">
+                                    <div class="card-overlay">
+                                        <h4>Columbia</h4>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span>Amazing streets</span>
+                                            <span class="price">$700</span>
+                                        </div>
+                                        <button class="btn btn-success w-100 mt-3">Book a hotel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="newsletter-content">
+                            <h2>Subscribe Newsletter</h2>
+                            <h3>The Travel</h3>
+                            <p>Get inspired! Receive travel discounts, tips and behind the scenes stories.</p>
+                            <div class="input-group mt-4">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                                <button class="btn btn-dark" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 newsletter-image">
+                        <!-- Background image applied via CSS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3 mb-4">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.png" alt="Globe Logo" class="img-fluid" style="max-width: 120px;">
+                    </a>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Our Destinations</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Canada</a></li>
+                        <li><a href="#">Alaska</a></li>
+                        <li><a href="#">France</a></li>
+                        <li><a href="#">Iceland</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Our Activities</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Northern Lights</a></li>
+                        <li><a href="#">Cruising & sailing</a></li>
+                        <li><a href="#">Multi-activities</a></li>
+                        <li><a href="#">Kayaking</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Travel Blogs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Bali Travel Guide</a></li>
+                        <li><a href="#">Sri Lanka Travel Guide</a></li>
+                        <li><a href="#">Peru Travel Guide</a></li>
+                        <li><a href="#">Bali Travel Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Work with us</a></li>
+                    </ul>
+                    <h5 class="mt-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Work with us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

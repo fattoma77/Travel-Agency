@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights - Globe Travel Agency</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center">
+                        <a href="index.html" class="nav-link me-4 active">
+                            <i class="fas fa-plane-departure"></i> Find Flight
+                        </a>
+                        <a href="stays.html" class="nav-link">
+                            <i class="fas fa-bed"></i> Find Stays
+                        </a>
+                    </div>
+                    
+                    <a class="navbar-brand mx-auto" href="index.html">
+                        <img src="images/logo.png" alt="Globe Logo" class="logo">
+                    </a>
+                    
+                    <div class="d-flex align-items-center">
+                        <a href="favorites.html" class="nav-link me-3">
+                            <i class="far fa-heart"></i> Favourites
+                        </a>
+                        <div class="user-profile ms-3">
+                            <a href="profile.html" class="d-flex align-items-center">
+                                <img src="images/user.png" alt="John D." class="rounded-circle me-2" width="32" height="32">
+                                <span>John D.</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Search Form -->
+    <section class="search-form-section py-4">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <label for="fromTo" class="form-label">From - To</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="fromTo" value="Lahore - Karachi">
+                        <span class="input-group-text bg-white">
+                            <i class="fas fa-exchange-alt"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label for="trip" class="form-label">Trip</label>
+                    <select class="form-select" id="trip">
+                        <option>Return</option>
+                        <option>One Way</option>
+                        <option>Multi-city</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="dates" class="form-label">Depart - Return</label>
+                    <input type="text" class="form-control" id="dates" value="07 Nov 22 - 13 Nov 22">
+                </div>
+                <div class="col-md-3">
+                    <label for="passengers" class="form-label">Passenger - Class</label>
+                    <input type="text" class="form-control" id="passengers" value="1 Passenger, Economy">
+                </div>
+                <div class="col-md-1 d-flex align-items-end">
+                    <button type="submit" class="btn btn-success w-100">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="flights-section py-4">
+        <div class="container">
+            <div class="row">
+                <!-- Filters Sidebar -->
+                <div class="col-md-3">
+                    <div class="filters-sidebar">
+                        <h5>Filters</h5>
+                        
+                        <!-- Price Filter -->
+                        <div class="filter-group">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6>Price</h6>
+                                <i class="fas fa-chevron-up"></i>
+                            </div>
+                            <div class="price-slider mt-3">
+                                <input type="range" class="form-range" min="0" max="1200" value="600" id="priceRange">
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>$0</span>
+                                    <span>$1200</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Departure Time Filter -->
+                        <div class="filter-group">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6>Departure Time</h6>
+                                <i class="fas fa-chevron-up"></i>
+                            </div>
+                            <div class="time-slider mt-3">
+                                <input type="range" class="form-range" min="0" max="24" value="12" id="timeRange">
+                                <div class="d-flex justify-content-between mt-2">
+                                    <span>12:00am</span>
+                                    <span>11:59pm</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Rating Filter -->
+                        <div class="filter-group">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6>Rating</h6>
+                                <i class="fas fa-chevron-up"></i>
+                            </div>
+                            <div class="rating-options mt-3">
+                                <div class="btn-group" role="group">
+                                    <input type="radio" class="btn-check" name="rating" id="rating1" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="rating1">1+</label>
+                                    
+                                    <input type="radio" class="btn-check" name="rating" id="rating2" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="rating2">2+</label>
+                                    
+                                    <input type="radio" class="btn-check" name="rating" id="rating3" autocomplete="off">
+                                    <label class="btn btn-outline-secondary" for="rating3">3+</label>
+                                    
+                                    <input type="radio" class="btn-check" name="rating" id="rating4" autocomplete="off" checked>
+                                    <label class="btn btn-outline-secondary" for="rating4">4+</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Airlines Filter -->
+                        <div class="filter-group">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6>Airlines</h6>
+                                <i class="fas fa-chevron-up"></i>
+                            </div>
+                            <div class="airlines-options mt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="emirates" checked>
+                                    <label class="form-check-label" for="emirates">Emirates</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flydubai" checked>
+                                    <label class="form-check-label" for="flydubai">Fly Dubai</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="qatar" checked>
+                                    <label class="form-check-label" for="qatar">Qatar</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="etihad" checked>
+                                    <label class="form-check-label" for="etihad">Etihad</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Trips Filter -->
+                        <div class="filter-group">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h6>Trips</h6>
+                                <i class="fas fa-chevron-up"></i>
+                            </div>
+                            <div class="trips-options mt-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="roundTrip" checked>
+                                    <label class="form-check-label" for="roundTrip">Round Trip</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="oneWay">
+                                    <label class="form-check-label" for="oneWay">One Way</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="multiCity">
+                                    <label class="form-check-label" for="multiCity">Multi-City</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexibleDates">
+                                    <label class="form-check-label" for="flexibleDates">My Dates Are Flexible</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flight Results -->
+                <div class="col-md-9">
+                    <!-- Sort Options -->
+                    <div class="sort-options bg-white p-3 rounded mb-4">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex">
+                                <div class="sort-option me-4">
+                                    <span>Cheapest</span>
+                                    <p class="text-muted mb-0">$99, 2h 18m</p>
+                                </div>
+                                <div class="sort-option me-4 active">
+                                    <span>Best</span>
+                                    <p class="text-muted mb-0">$99, 2h 18m</p>
+                                </div>
+                                <div class="sort-option">
+                                    <span>Quickest</span>
+                                    <p class="text-muted mb-0">$99, 2h 18m</p>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="btn btn-light">
+                                    <i class="fas fa-sliders-h"></i> Other sort
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <p>Showing 4 of <span class="text-danger">257 places</span></p>
+                        <div class="d-flex align-items-center">
+                            <span class="me-2">Sort by:</span>
+                            <div class="dropdown">
+                                <button class="btn btn-sm dropdown-toggle fw-bold" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Recommended
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                                    <li><a class="dropdown-item" href="#">Price: Low to High</a></li>
+                                    <li><a class="dropdown-item" href="#">Price: High to Low</a></li>
+                                    <li><a class="dropdown-item" href="#">Duration: Shortest</a></li>
+                                    <li><a class="dropdown-item" href="#">Rating: Highest</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Flight Cards -->
+                    <div class="flight-results">
+                        <!-- Emirates -->
+                        <div class="flight-card mb-4">
+                            <div class="row">
+                                <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                    <img src="images/airlines/emirates.png" alt="Emirates" class="img-fluid airline-logo">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="flight-details">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h5 class="mb-1">Emirates</h5>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="badge bg-light text-dark me-2">4.2</span>
+                                                    <span class="text-muted">Very Good | 54 reviews</span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="text-muted mb-0">starting from</p>
+                                                <h5 class="text-danger mb-0">$104</h5>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flight-options mb-3">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" value="" id="emirates1" checked>
+                                                <label class="form-check-label" for="emirates1">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="emirates2">
+                                                <label class="form-check-label" for="emirates2">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <hr>
+                                        
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <button class="btn btn-favorite me-2" onclick="toggleFavorite(this)">
+                                                    <i class="far fa-heart"></i>
+                                                </button>
+                                                <a href="#" class="btn btn-success">View Deals</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fly Dubai -->
+                        <div class="flight-card mb-4">
+                            <div class="row">
+                                <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                    <img src="images/airlines/flydubai.png" alt="Fly Dubai" class="img-fluid airline-logo">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="flight-details">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h5 class="mb-1">Fly Dubai</h5>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="badge bg-light text-dark me-2">4.2</span>
+                                                    <span class="text-muted">Very Good | 54 reviews</span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="text-muted mb-0">starting from</p>
+                                                <h5 class="text-danger mb-0">$104</h5>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flight-options mb-3">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" value="" id="flydubai1" checked>
+                                                <label class="form-check-label" for="flydubai1">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flydubai2">
+                                                <label class="form-check-label" for="flydubai2">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <hr>
+                                        
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <button class="btn btn-favorite me-2" onclick="toggleFavorite(this)">
+                                                    <i class="far fa-heart"></i>
+                                                </button>
+                                                <a href="#" class="btn btn-success">View Deals</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Qatar Airways -->
+                        <div class="flight-card mb-4">
+                            <div class="row">
+                                <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                    <img src="images/airlines/qatar.png" alt="Qatar Airways" class="img-fluid airline-logo">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="flight-details">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h5 class="mb-1">Qatar Airways</h5>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="badge bg-light text-dark me-2">4.2</span>
+                                                    <span class="text-muted">Very Good | 54 reviews</span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="text-muted mb-0">starting from</p>
+                                                <h5 class="text-danger mb-0">$104<span class="small">/night</span></h5>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flight-options mb-3">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" value="" id="qatar1" checked>
+                                                <label class="form-check-label" for="qatar1">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="qatar2">
+                                                <label class="form-check-label" for="qatar2">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <hr>
+                                        
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <button class="btn btn-favorite me-2" onclick="toggleFavorite(this)">
+                                                    <i class="far fa-heart"></i>
+                                                </button>
+                                                <a href="#" class="btn btn-success">View Deals</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Etihad Airways -->
+                        <div class="flight-card mb-4">
+                            <div class="row">
+                                <div class="col-md-3 d-flex align-items-center justify-content-center">
+                                    <img src="images/airlines/etihad.png" alt="Etihad Airways" class="img-fluid airline-logo">
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="flight-details">
+                                        <div class="d-flex justify-content-between align-items-start mb-3">
+                                            <div>
+                                                <h5 class="mb-1">Etihad Airways</h5>
+                                                <div class="d-flex align-items-center">
+                                                    <span class="badge bg-light text-dark me-2">4.2</span>
+                                                    <span class="text-muted">Very Good | 54 reviews</span>
+                                                </div>
+                                            </div>
+                                            <div class="text-end">
+                                                <p class="text-muted mb-0">starting from</p>
+                                                <h5 class="text-danger mb-0">$104<span class="small">/night</span></h5>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="flight-options mb-3">
+                                            <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" value="" id="etihad1" checked>
+                                                <label class="form-check-label" for="etihad1">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="etihad2">
+                                                <label class="form-check-label" for="etihad2">
+                                                    <strong>12:00 PM - 01:28 PM</strong> <span class="text-muted">Non-stop, 2h 28m</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <hr>
+                                        
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <button class="btn btn-favorite me-2" onclick="toggleFavorite(this)">
+                                                    <i class="far fa-heart"></i>
+                                                </button>
+                                                <a href="#" class="btn btn-success">View Deals</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-dark w-100 py-3">Show more results</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5 mt-5">
+        <div class="container">
+            <div class="newsletter-box">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="newsletter-content">
+                            <h2>Subscribe Newsletter</h2>
+                            <h3>The Travel</h3>
+                            <p>Get inspired! Receive travel discounts, tips and behind the scenes stories.</p>
+                            <div class="input-group mt-4">
+                                <input type="email" class="form-control" placeholder="Your email address">
+                                <button class="btn btn-dark" type="button">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 newsletter-image">
+                        <!-- Background image applied via CSS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-3 mb-4">
+                    <a href="index.html" class="footer-logo">
+                        <img src="images/logo.png" alt="Globe Logo" class="img-fluid" style="max-width: 120px;">
+                    </a>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Our Destinations</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Canada</a></li>
+                        <li><a href="#">Alaska</a></li>
+                        <li><a href="#">France</a></li>
+                        <li><a href="#">Iceland</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Our Activities</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Northern Lights</a></li>
+                        <li><a href="#">Cruising & sailing</a></li>
+                        <li><a href="#">Multi-activities</a></li>
+                        <li><a href="#">Kayaking</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Travel Blogs</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Bali Travel Guide</a></li>
+                        <li><a href="#">Sri Lanka Travel Guide</a></li>
+                        <li><a href="#">Peru Travel Guide</a></li>
+                        <li><a href="#">Bali Travel Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Work with us</a></li>
+                    </ul>
+                    <h5 class="mt-3">Contact Us</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Work with us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
